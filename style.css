@@ -296,8 +296,8 @@ main { background: var(--bg); }
 /* --- Mobile (iOS/Android) safe-area fixes for sticky bar and footer --- */
 @media (max-width: 900px){
   .sticky-bar{
-    padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); /* lift above iOS home bar */
-    bottom: 0;
+    padding: 14px 16px; /* lift above iOS home bar */
+    bottom: env(safe-area-inset-bottom);
   }
   /* Make sure page content clears the sticky bar including safe area */
   body{ margin-bottom: calc(80px + env(safe-area-inset-bottom)); }
