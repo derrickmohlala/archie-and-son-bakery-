@@ -291,3 +291,44 @@ main { background: var(--bg); }
 
 /* Push footer up above sticky subtotal bar */
 .site-footer { margin-bottom: 80px; }
+
+
+/* --- Mobile (iOS/Android) safe-area fixes for sticky bar and footer --- */
+@media (max-width: 900px){
+  .sticky-bar{
+    padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); /* lift above iOS home bar */
+    bottom: 0;
+  }
+  /* Make sure page content clears the sticky bar including safe area */
+  body{ margin-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .site-footer{ margin-bottom: calc(80px + env(safe-area-inset-bottom)); }
+}
+
+
+/* Delivery notes: comfortably tall */
+#deliveryNote{
+  min-height: 160px !important;
+  height: 160px !important;
+  line-height: 1.4;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+
+/* Footer clears sticky subtotal bar on all screens */
+.site-footer{
+  margin-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+}
+
+
+/* WhatsApp green buttons */
+#whatsAppBtn,
+#stickyWhats{
+  background: #25D366 !important;
+  border-color: #25D366 !important;
+  color: #0b3a21 !important; /* high-contrast dark text */
+}
+#whatsAppBtn:hover,
+#stickyWhats:hover{
+  filter: brightness(0.95);
+}
