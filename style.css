@@ -1,45 +1,31 @@
-/* Archie & Son Bakery — simple, deploy-ready CSS */
+/* Base theme */
 :root{
-  --red:#a33d2f;
-  --yellow:#f2c04b;
-  --navy:#0e2a3b;
-  --ink:#1b2a35;
-  --bg:#fff9f0;
-  --card:#fffefb;
-  --muted:#6b7280;
-  --ring: rgba(163,61,47,.35);
+  --red:#a33d2f; --yellow:#f2c04b; --navy:#0e2a3b; --ink:#1b2a35;
+  --bg:#fff9f0; --card:#fffefb; --muted:#6b7280; --ring: rgba(163,61,47,.35);
 }
-
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{
-  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--ink);
-  background:var(--bg);
-  line-height:1.6;
-}
-
+body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.6}
 .container{width:min(1100px,92%);margin-inline:auto}
 
-.site-header{
-  background:linear-gradient(90deg,var(--navy),#102f46);
-  color:#fff; position:sticky; top:0; z-index:10;
-  box-shadow:0 6px 20px rgba(0,0,0,.12);
-}
+/* Header */
+.site-header{background:linear-gradient(90deg,var(--navy),#102f46); color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 6px 20px rgba(0,0,0,.12)}
 .header-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
 .brand{display:flex; gap:12px; align-items:center}
-.brand-mark{font-size:28px; filter: drop-shadow(0 2px 0 rgba(0,0,0,.15));}
+.brand-logo{width:48px; height:48px; object-fit:cover; border-radius:50%}
 .brand h1{font-size:20px; margin:0; line-height:1}
 .tagline{margin:0; font-size:12px; opacity:.85}
 .nav a{color:#e7eef6; text-decoration:none; margin-left:18px; font-weight:600}
 .nav a:hover{color:#fff}
 
-.hero{padding:48px 0; background: radial-gradient(1200px 600px at -10% -40%, #ffe8a8 0%, transparent 40%), radial-gradient(900px 500px at 110% -10%, #ffd6c7 0%, transparent 45%);}
+/* Hero */
+.hero{padding:48px 0; background: radial-gradient(1200px 600px at -10% -40%, #ffe8a8 0%, transparent 40%), radial-gradient(900px 500px at 110% -10%, #ffd6c7 0%, transparent 45%)}
 .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
 .hero-copy h2{font-size:36px; margin:.2em 0}
 .hero-copy p{margin:.4em 0 1.2em}
 .hero-art img{width:100%; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.12)}
 
+/* Menu */
 .menu-section{padding:36px 0 12px}
 .menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 .card{background:var(--card); border:1px solid #eee; border-radius:16px; padding:16px; box-shadow:0 8px 20px rgba(0,0,0,.06)}
@@ -48,208 +34,260 @@ body{
 .card li{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed #eee}
 .card li:last-child{border-bottom:none}
 
+/* Order */
 .order-section{padding:28px 0 40px}
+.order-card{max-width:980px; margin:0 auto; padding:16px}
 .order-form label{display:block; font-weight:600; margin-bottom:6px; line-height:1.2}
-.order-form input, .order-form select{
-  width:100%; padding:12px 14px; border:1px solid #e5e7eb; border-radius:12px; background:#fff;
-  box-shadow: 0 0 0 0 var(--ring); outline:none; transition:.15s;
-}
-.order-form input:focus, .order-form select:focus{border-color:var(--red); box-shadow: 0 0 0 4px var(--ring)}
 .form-grid{display:grid; grid-template-columns: 2fr 0.6fr 1.4fr 0.8fr; gap:12px; align-items:end}
+.form-grid > div{display:flex; flex-direction:column}
+.order-form input, .order-form select{width:100%; padding:12px 14px; border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow: 0 0 0 0 var(--ring); outline:none; transition:.15s}
+.order-form input:focus, .order-form select:focus{border-color:var(--red); box-shadow: 0 0 0 4px var(--ring)}
 .add-wrap{display:flex; justify-content:flex-end; align-self:end}
-.table-wrap{margin-top:16px; overflow:auto}
-table{width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden}
-thead th{background:var(--yellow); color:#241a00; text-align:left; padding:10px}
-tbody td, tfoot td{padding:10px; border-bottom:1px solid #f1f5f9}
-tbody tr:last-child td{border-bottom:none}
+.add-wrap .btn{width:100%; min-width:unset}
+.table-wrap{margin-top:16px; overflow:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.06); border:1px solid #eee; background:#fff}
+table{width:100%; border-collapse:collapse}
+thead th{position:sticky; top:0; z-index:1; background:var(--yellow); color:#241a00; padding:12px; text-align:left}
+tbody td, tfoot td{padding:12px; border-bottom:1px solid #f1f5f9}
 td.right{text-align:right}
 tfoot td{font-weight:700}
-.hidden{display:none}
 
-.customer-grid{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; margin-top:16px}
-.actions{display:flex; gap:10px; margin-top:14px; align-items:center}
+/* Customer row */
+.customer-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr; gap:12px; margin-top:16px}
 
+
+
+/* Actions */
+.actions{display:flex; gap:12px; align-items:center; margin-top:16px}
 .btn{display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid #e5e7eb; background:#fff; font-weight:700; text-decoration:none; color:var(--ink); box-shadow:0 6px 16px rgba(0,0,0,.06)}
 .btn:hover{transform:translateY(-1px)}
 .btn.primary{background:var(--red); color:#fff; border-color:transparent}
 .btn.primary.disabled{pointer-events:none; opacity:.6}
 .btn.subtle{background:#fff; color:#374151}
 
-.contact-section{padding:24px 0 60px}
-.contact-card{display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #eee; padding:16px; border-radius:16px}
+/* Contact */
+.contact-section{padding:24px 0 40px}
+.contact-card{display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #eee; padding:16px; border-radius:16px; flex-wrap:wrap; gap:12px}
 .hint{background: #fff7ed; border:1px solid #fed7aa; padding:10px 12px; border-radius:12px}
+.delivery-note{ text-align:center; width:100%; margin-top:8px; font-size:14px; color:#374151 }
 
-.site-footer{background:#0f2535; color:#ccdae5; padding:18px 0; text-align:center}
+/* Footer */
+.site-footer{background:#0f2535; color:#ccdae5; padding: 8px 0; text-align:center}
 .small{font-size:12px}
 .muted{color:var(--muted)}
 
+/* Sticky mobile bar */
+
+.sticky-bar .btn{min-height:44px}
+.sticky-total{font-weight:700}
+
+/* Responsive */
 @media (max-width: 900px){
   .hero-inner{grid-template-columns:1fr; text-align:center}
   .menu-grid{grid-template-columns:1fr}
-  .form-grid{display:grid; grid-template-columns: 2fr 0.6fr 1.4fr 0.8fr; gap:12px; align-items:end}
-  .customer-grid{grid-template-columns:1fr 1fr}
+  .form-grid{grid-template-columns:1fr; align-items:stretch}
+  .customer-grid{grid-template-columns:1fr; gap:10px}
+  .add-wrap .btn{width:100%}
+  .order-section{padding-bottom:90px} /* leave room for sticky bar */
   .nav{display:none}
 }
 
 
-
-.brand-logo{height:40px; width:auto; display:block; filter: drop-shadow(0 2px 0 rgba(0,0,0,.12));}
-
-.order-form input, .order-form select, .btn{min-height:48px; font-size:16px}
-
-.sticky-bar{
-  position:fixed; left:0; right:0; bottom:0; z-index:30;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:12px; padding:10px 14px; background:#0f2535; color:#fff;
-  box-shadow:0 -6px 20px rgba(0,0,0,.25);
+/* === Uniform form controls (inputs/selects) and Safari-friendly time/select === */
+.order-form input,
+.order-form select {
+  height: 56px;
+  min-height: 56px;
+  padding: 0 14px;
+  font-size: 16px; /* prevents iOS zoom */
+  width: 100%;
+  box-sizing: border-box;
 }
-.sticky-bar .btn{min-height:44px}
-.sticky-total{font-weight:700}
 
-@media (max-width: 900px){
-  .header-inner{padding:10px 0}
-  .brand h1{font-size:18px}
-  .hero-copy h2{font-size:28px}
-  .order-section{padding-bottom:90px} /* leave room for sticky bar */
-  .form-grid{display:grid; grid-template-columns: 2fr 0.6fr 1.4fr 0.8fr; gap:12px; align-items:end}
-  .customer-grid{grid-template-columns:1fr}
-  .actions{display:none} /* hide desktop actions on mobile; sticky bar handles CTA */
+/* Prefer default native UI for time/select to avoid Safari quirks */
+.order-form select,
+.order-form input[type="time"] {
+  -webkit-appearance: auto;
+  appearance: auto;
+  line-height: normal;
 }
 
 
-/* Round logo */
-.brand-logo{height:44px; width:44px; object-fit:cover; border-radius:9999px;}
-
-/* Equal heights for controls */
-.order-form input, .order-form select{min-height:56px}
-.qty-row{display:flex; gap:8px; align-items:center}
-.qty-row .qty-quick{display:flex; gap:6px}
-.qty-btn{padding:10px 12px}
-
-/* Make select same visual height as inputs on iOS/Android */
-select#itemSelect{ -webkit-appearance:none; appearance:none; padding-top:14px; padding-bottom:14px }
-
-/* Ensure fulfilment dropdown same height */
-#fulfilment{min-height:56px; padding-top:14px; padding-bottom:14px}
-
-/* UNIFORM_HEIGHTS */
-.order-form input, .order-form select{
-  min-height:56px; padding-top:14px; padding-bottom:14px;
-}
-#itemSelect, #fulfilment, #noteInput{min-height:56px}
-
-
-/* ==== Header alignment (fix misalignment) ==== */
-.header-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-.brand{display:flex; align-items:center; gap:12px}
-.brand-logo{width:48px; height:48px; border-radius:50%; object-fit:cover}
-
-/* ==== Uniform inputs across the form ==== */
+/* Uniform heights across controls incl. buttons and textarea */
 .order-form input,
 .order-form select,
+.order-form textarea,
+.btn {
+  min-height: 56px;
+  box-sizing: border-box;
+}
+
+/* Textarea visual alignment (single-line height by default, grows with rows attr) */
+.order-form textarea {
+  padding: 12px 14px;
+  resize: vertical;
+  line-height: 1.3;
+}
+
+/* Make Add to order button match row height */
+.add-wrap .btn{ height:56px; display:flex; align-items:center; justify-content:center; }
+
+/* Wider delivery notes block in the customer grid */
+.fg-notes-wide{ grid-column: span 2; }
+
+@media (max-width: 900px){
+  .fg-notes-wide{ grid-column: auto; }
+}
+
+
+/* Delivery notes spans the whole form row width */
+.fg-notes-wide{ grid-column: 1 / -1; }
+.order-form .char-count{
+  text-align:right;
+  font-size:12px;
+  color: var(--muted);
+  margin-top:6px;
+}
+
+
+/* Autosize textarea: hide scrollbar jump, allow vertical grow */
 .order-form textarea{
-  min-height:56px;
-  padding-top:14px; padding-bottom:14px;
-}
-#itemSelect, #qtyInput, #noteInput, #fulfilment, #custName, #custTime{min-height:56px}
-
-/* ==== Order form grid: tidy desktop and mobile ==== */
-.form-grid{display:grid; grid-template-columns: 2fr 0.6fr 1.4fr 0.8fr; gap:12px; align-items:end}
-.add-wrap{display:flex; justify-content:flex-end; align-self:end}
-.add-wrap .btn{width:100%; min-width:unset}
-
-/* Customer info row */
-.customer-grid{
-  display:grid;
-  grid-template-columns:1.2fr 1fr 1fr 1fr;
-  gap:12px; margin-top:16px;
+  overflow: hidden;
+  resize: vertical;
 }
 
-/* Table visual: keep header visible and spacing consistent */
-.table-wrap{margin-top:16px; overflow:auto; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,.06); border:1px solid #eee; background:#fff}
-table{width:100%; border-collapse:collapse}
-thead th{position:sticky; top:0; z-index:1; background:var(--yellow); color:#241a00; padding:12px}
-tbody td, tfoot td{padding:12px; border-bottom:1px solid #f1f5f9}
 
-/* Actions row consistency */
-.actions{display:flex; gap:12px; align-items:center; margin-top:16px}
+/* Ensure sticky bar content is vertically centered */
+#stickyBar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#stickyBar .subtotal{
+  flex: 1;
+}
+#stickyBar .btn{
+  margin-left: 12px;
+}
 
-/* Mobile tweaks */
+
+/* Sticky bar: balance spacing between subtotal and WhatsApp button */
+#stickyBar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+#stickyBar .subtotal{
+  flex: 1;
+}
+#stickyBar .btn{
+  margin-left: 16px;
+}
+
+/* Add to order row: align button vertically with fields */
+.add-wrap{
+  display: flex;
+  align-items: center;
+}
+.add-wrap .btn{
+  margin-left: 12px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Delivery notes: larger static box (no autosize) */
+#deliveryNote{
+  min-height: 112px; /* ~4 rows @ 28px line-height */
+  height: auto;
+  resize: vertical; /* allow manual grow if needed */
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+
+/* === Delivery notes: force bigger static height === */
+#deliveryNote{
+  height: 120px !important;      /* ~4-5 lines tall */
+  min-height: 120px !important;
+  resize: vertical;
+  padding: 12px 14px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* === Sticky bar overlap fix (mobile) === */
+
+
+/* Leave breathing room so content doesn't hide behind sticky bar */
+
+
+
+/* Make delivery notes span the full row width */
+.fg-notes-wide{ grid-column: 1 / -1; }
+.order-form textarea{ width: 100%; }
+
+
+/* Footer clears sticky bar while staying thin */
 @media (max-width: 900px){
-  .form-grid{display:grid; grid-template-columns: 2fr 0.6fr 1.4fr 0.8fr; gap:12px; align-items:end}
-  .add-wrap{display:flex; justify-content:flex-end; align-self:end}
-  .add-wrap .btn{width:100%; min-width:unset}
-  .customer-grid{grid-template-columns:1fr; gap:10px}
+  .site-footer{ margin-bottom: 110px; } /* height of sticky bar */
 }
 
 
-/* === Center the order section like the menu cards === */
-.order-section .container h3,
-.order-section .container .form-grid,
-.order-section .container .table-wrap,
-.order-section .container .customer-grid,
-.order-section .container .actions{
-  max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Sticky bar – square, padded, premium look */
+.sticky-bar{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: #0f2535;
+  color: #ffffff;
+  box-shadow: 0 -6px 16px rgba(0,0,0,.25);
+  border-radius: 0; /* square edges */
 
-/* Add gentle side padding so controls never touch edges */
-.order-section .container .form-grid,
-.order-section .container .customer-grid{
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-/* Pull the Add button away from the far right visually */
-.add-wrap .btn{ width:auto; min-width: 160px }
-
-
-/* Centered card around the order form */
-.order-card{max-width:980px; margin:0 auto; padding:16px}
-
-/* Ensure each grid cell stacks label over field */
-.form-grid > div{display:flex; flex-direction:column}
-
-/* Grid proportions: Item | Qty | Notes | Add */
-.form-grid{display:grid; grid-template-columns: 2fr 0.6fr 1.4fr 0.8fr; gap:12px; align-items:end}
-
-/* Avoid edge-kiss on wide screens */
-.order-section .container{padding-left:0; padding-right:0}
-.order-card{padding-left:12px; padding-right:12px}
-
-/* Button alignment */
-.add-wrap{display:flex; justify-content:flex-end; align-self:end}
-.add-wrap .btn{width:100%; min-width:unset}
-
-/* Mobile: stack neatly */
-@media (max-width: 900px){
-  .order-card{padding-left:10px; padding-right:10px}
-  .form-grid{grid-template-columns:1fr; align-items:stretch}
-  .add-wrap .btn{width:100%}
+  border-top: 2px solid rgba(255,255,255,0.15);}
+.sticky-total{ font-size: 1.15rem; font-weight: 800; }
+.sticky-bar .btn{
+  padding: 14px 22px;            /* extra vertical padding */
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;            /* soft button shape */
 }
 
 
-/* Force equal height for fulfilment select (iOS/Android) */
-#fulfilment{
-  height:56px; /* hard height to match inputs visually */
-  padding:0 14px;
-  -webkit-appearance:none; appearance:none;
-  line-height:56px; /* helps on some browsers */
-}
-
-/* Contact card responsive fix */
-.contact-card{flex-wrap:wrap; gap:12px}
-@media (max-width: 640px){
-  .contact-card{flex-direction:column; align-items:flex-start}
-  .contact-card .hint{width:100%}
-}
+/* Footer overlay fix: remove cream strip and scroll above sticky bar */
+.site-footer {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  background: #0f2535;
+  color: #fff;
+  position: relative;
+  }
 
 
-.delivery-note{
-  text-align:center;
-  width:100%;
-  margin-top:8px;
-  font-size:14px;
-  color:#374151;
+/* Thin navy footer with crisp seam, no overlap with sticky */
+.site-footer{
+  background:#0f2535;
+  color:#ccdae5;
+  padding: 8px 0;
+  margin:0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  position:relative;
 }
+
+
+/* Page background fix: navy body, cream content */
+body { background: #0f2535 !important; }
+main { background: var(--bg); }
+
+
+/* Push footer up above sticky subtotal bar */
+.site-footer { margin-bottom: 80px; }

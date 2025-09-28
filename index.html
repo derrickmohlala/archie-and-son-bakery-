@@ -4,17 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Archie & Son Bakery</title>
-  <meta name="description" content="Fresh breads, buns and meals. Order via WhatsApp." />
+  <meta name="description" content="Fresh breads, rolls and local favourites. Order via WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/bread-emoji.png">
+  <link rel="icon" href="assets/logo.png">
+<script>window.WHATSAPP_NUMBER = "27826102780"; // Change this to update the WhatsApp destination</script>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <div class="brand"><img class="brand-logo" src="assets/logo.png" alt="Archie &amp; Son Bakery Logo"/><div><h1>Archie &amp; Son Bakery</h1><p class="tagline">Fresh. Local. Friendly.</p></div></div><nav class="nav">
+    <div class="brand">
+      <img class="brand-logo" src="assets/logo.png" alt="Archie &amp; Son Bakery Logo"/>
+      <div>
+        <h1>Archie &amp; Son Bakery</h1>
+        <p class="tagline">Fresh. Local. Friendly.</p>
+      </div>
+    </div>
+    <nav class="nav">
       <a href="#menu">Menu</a>
       <a href="#order">Order</a>
       <a href="#contact">Contact</a>
@@ -23,8 +31,6 @@
 </header>
 
 <main>
-  
-  
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-art">
@@ -32,20 +38,16 @@
       </div>
       <div class="hero-copy">
         <h2>Freshly baked in Mashifane</h2>
-        <p>Welcome to Archie &amp; Son Bakery — your neighborhood bakery in Mashifane since 2024. We specialise in freshly baked breads, rolls, and hearty local favourites like sphatlo and Portuguese burgers. Beyond our daily menu, we also offer catering for events of all sizes. With a passion for family, quality, and community, we’re here to bring you warm, delicious bakes every day.</p>
+        <p>Welcome to Archie &amp; Son Bakery — your neighborhood bakery in Mashifane. We specialise in freshly baked breads, rolls, and hearty local favourites like sphatlo and Portuguese burgers. Beyond our daily menu, we also offer catering for events of all sizes. With a passion for family, quality, and community, we’re here to bring you warm, delicious bakes every day.</p>
         <a class="btn primary" href="#order">Order on WhatsApp</a>
       </div>
     </div>
   </section>
 
-
-
   <section id="menu" class="menu-section">
     <div class="container">
       <h3>Menu</h3>
       <div class="menu-grid">
-        <!-- Breads & Rolls -->
-        
         <article class="card">
           <h4>Breads &amp; Rolls</h4>
           <ul>
@@ -56,10 +58,6 @@
             <li><span>Brown Bread</span><span data-price="10">R10.00</span></li>
           </ul>
         </article>
-
-
-        <!-- Meals & Snacks -->
-        
         <article class="card">
           <h4>Meals &amp; Snacks</h4>
           <ul>
@@ -68,12 +66,10 @@
             <li><span>Portuguese Burger</span><span data-price="13.5">R13.50</span></li>
           </ul>
         </article>
-
       </div>
     </div>
   </section>
 
-  
   <section id="order" class="order-section">
     <div class="container">
       <h3>Place your order</h3>
@@ -106,7 +102,7 @@
               <input id="noteInput" type="text" placeholder="e.g. extra sauce, sliced bread" />
             </div>
             <div class="add-wrap">
-              <button type="button" id="addItem" class="btn primary">Add to order</button>
+              <button id="addItem" class="btn primary" type="button">Add to order</button>
             </div>
           </div>
 
@@ -125,7 +121,7 @@
           <div class="customer-grid">
             <div>
               <label>Your name</label>
-              <input id="custName" type="text" required placeholder="Name" />
+              <input id="custName" type="text" placeholder="Name" />
             </div>
             <div>
               <label>Pickup or Delivery?</label>
@@ -134,14 +130,10 @@
                 <option>Delivery</option>
               </select>
             </div>
-            <div id="addressWrap" class="hidden">
-              <label>Address (for delivery)</label>
-              <input id="custAddress" type="text" placeholder="Street, area" />
-            </div>
-            <div>
-              <label>Preferred time</label>
-              <input id="custTime" type="time" />
-            </div>
+            <div class="fg-notes-wide">
+  <label>Delivery notes (optional)</label>
+  <textarea id="deliveryNote" placeholder="e.g. address or landmark, preferred date and time" rows="4"></textarea>
+</div>
           </div>
 
           <div class="actions">
@@ -149,11 +141,15 @@
             <button id="clearBtn" type="button" class="btn subtle">Clear</button>
           </div>
           <p class="small muted">We’ll reply on WhatsApp to confirm availability and timing.</p>
+
+          <div id="stickyBar" class="sticky-bar hidden">
+            <div class="sticky-total">Subtotal: <span id="stickySubtotal">R0.00</span></div>
+            <a id="stickyWhats" class="btn primary disabled" href="#" target="_blank" rel="noopener">Send to WhatsApp</a>
+          </div>
         </form>
       </div>
     </div>
   </section>
-
 
   <section id="contact" class="contact-section">
     <div class="container contact-card">
@@ -166,11 +162,8 @@
         <strong>Tip:</strong> Save our number for faster re-ordering.
       </div>
     </div>
-    <div class="delivery-note hint" style="margin-top:12px;">
-        <strong>Note:</strong> Deliveries outside Mashifane will incur an additional delivery fee.
-      </div>
-      
-    </section>
+    <div class="delivery-note"><strong>Note:</strong> Deliveries outside Mashifane will incur an additional delivery fee.</div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -180,8 +173,135 @@
 </footer>
 
 <script>
-  const WHATSAPP_NUMBER = "27826102780";
+(function(){
+  // Minimal state
+  var items = [];
+  var addBtn = document.getElementById('addItem');
+  var itemSel = document.getElementById('itemSelect');
+  var qtyInput = document.getElementById('qtyInput');
+  var noteInput = document.getElementById('noteInput');
+  var tableBody = document.querySelector('#orderTable tbody');
+  var subtotalCell = document.getElementById('subtotalCell');
+  var whatsBtn = document.getElementById('whatsAppBtn');
+  var fulfilSel = document.getElementById('fulfilment');
+  var nameInput = document.getElementById('custName');
+  var stickyBar = document.getElementById('stickyBar');
+  var stickySubtotal = document.getElementById('stickySubtotal');
+  var stickyWhats = document.getElementById('stickyWhats');
+
+  function esc(s){ return (s+'').replace(/[&<>]/g, function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[m];}); }
+
+  function render(){
+    // table
+    tableBody.innerHTML = '';
+    var subtotal = 0;
+    items.forEach(function(it, idx){
+      var tr = document.createElement('tr');
+      var lineTotal = it.price * it.qty;
+      subtotal += lineTotal;
+      tr.innerHTML = '<td>'+esc(it.name)+(it.note?'<div class="small muted">'+esc(it.note)+'</div>':'')+'</td>' +
+                     '<td>'+it.qty+'</td>' +
+                     '<td>R'+it.price.toFixed(2)+'</td>' +
+                     '<td>R'+lineTotal.toFixed(2)+'</td>' +
+                     '<td><button type="button" class="btn subtle" data-i="'+idx+'">Remove</button></td>';
+      tableBody.appendChild(tr);
+    });
+    subtotalCell.textContent = 'R'+subtotal.toFixed(2);
+
+    // remove handlers
+    Array.prototype.slice.call(tableBody.querySelectorAll('button[data-i]')).forEach(function(b){
+      b.onclick = function(){
+        var i = parseInt(b.getAttribute('data-i'), 10);
+        items.splice(i,1);
+        render();
+      };
+    });
+
+    // whatsapp link enable
+    var hasItems = items.length>0;
+    if(!hasItems){
+      whatsBtn.classList.add('disabled'); whatsBtn.href = '#';
+      if(stickyBar){ stickyBar.classList.add('hidden'); }
+      if(stickyWhats){ stickyWhats.classList.add('disabled'); stickyWhats.href = '#'; }
+      if(stickySubtotal){ stickySubtotal.textContent = 'R0.00'; }
+      return;
+    }
+    if(stickySubtotal){
+      var subtotalVal = items.reduce(function(s,it){return s+it.price*it.qty;},0);
+      stickySubtotal.textContent = 'R'+subtotalVal.toFixed(2);
+    }
+    whatsBtn.classList.remove('disabled');
+    if(stickyBar){ stickyBar.classList.remove('hidden'); }
+
+    var lines = [];
+    lines.push('*New Order — Archie & Son Bakery*');
+    if (nameInput && nameInput.value.trim()){ lines.push('Name: '+nameInput.value.trim()); }
+    lines.push('Fulfilment: '+(fulfilSel? fulfilSel.value : 'Pickup'));
+    lines.push('');
+    lines.push('Items:');
+    items.forEach(function(it){
+      var nt = it.note ? ' ('+it.note+')' : '';
+      lines.push('- '+it.qty+' x '+it.name+nt+' @ R'+it.price.toFixed(2)+' = R'+(it.price*it.qty).toFixed(2));
+    });
+    lines.push('');
+    lines.push('Subtotal: '+subtotalCell.textContent);
+    lines.push('');
+    lines.push('Please confirm availability and total. Thank you!');
+    var msg = encodeURIComponent(lines.join('\n'));
+    var link = 'https://wa.me/' + (window.WHATSAPP_NUMBER || '27826102780') + '?text=' + msg;
+    whatsBtn.href = link;
+    if(stickyWhats){ stickyWhats.href = link; stickyWhats.classList.remove('disabled'); }
+  }
+
+  function addCurrentItem(){
+    var opt = (itemSel.selectedOptions && itemSel.selectedOptions[0]) ? itemSel.selectedOptions[0] : itemSel.options[itemSel.selectedIndex];
+    var name = itemSel.value || (opt ? opt.value : '');
+    var price = parseFloat((opt && opt.dataset && opt.dataset.price) ? opt.dataset.price : '0');
+    var qty = Math.max(1, parseInt(qtyInput.value||'1',10));
+    var note = (noteInput.value||'').trim();
+    items.push({name:name, price:price, qty:qty, note:note});
+    qtyInput.value = 1; noteInput.value = '';
+    render();
+  }
+
+  // Wire immediately
+  if (addBtn){
+    addBtn.onclick = function(e){ e.preventDefault(); addCurrentItem(); };
+  }
+  // Also update link when inputs change so button state is correct
+  var form = document.getElementById('orderForm');
+  if (form){
+    ['input','change'].forEach(function(ev){
+      form.addEventListener(ev, render);
+    });
+  }
+  // Clear button handler
+  var clearBtn = document.getElementById('clearBtn');
+  if (clearBtn){
+    clearBtn.onclick = function(e){
+      e.preventDefault();
+      // Reset items and UI
+      items = [];
+      // Try reset form for convenience
+      var form = document.getElementById('orderForm');
+      if (form && form.reset) form.reset();
+      // Reset fulfilment to Pickup
+      if (fulfilSel) fulfilSel.value = 'Pickup';
+      // Clear delivery notes if present
+      var dn = document.getElementById('deliveryNote');
+      if (dn) dn.value = '';
+      // Re-render table and totals; disable WhatsApp
+      render();
+      if (whatsBtn){ whatsBtn.classList.add('disabled'); whatsBtn.href = '#'; }
+      if (stickyBar){ stickyBar.classList.add('hidden'); }
+      if (stickyWhats){ stickyWhats.classList.add('disabled'); stickyWhats.href = '#'; }
+    };
+  }
+
+  // initial render
+  render();
+})();
 </script>
-<script src="script.js"></script>
+
 </body>
 </html>
