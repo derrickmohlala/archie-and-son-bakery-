@@ -296,7 +296,6 @@ tfoot td{font-weight:700; font-size:16px; color:var(--navy)}
   border-top: 2px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
 }
-.sticky-bar.hidden{display:none}
 .sticky-total{ font-size: 1.1rem; font-weight: 700; }
 .sticky-bar .btn{
   padding: 14px 24px;

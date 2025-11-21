@@ -142,7 +142,7 @@
           </div>
           <p class="small muted">We’ll reply on WhatsApp to confirm availability and timing.</p>
 
-          <div id="stickyBar" class="sticky-bar hidden">
+          <div id="stickyBar" class="sticky-bar">
             <div class="sticky-total">Subtotal: <span id="stickySubtotal">R0.00</span></div>
             <a id="stickyWhats" class="btn primary disabled" href="#" target="_blank" rel="noopener">Send to WhatsApp</a>
           </div>
@@ -221,7 +221,6 @@
     var hasItems = items.length>0;
     if(!hasItems){
       whatsBtn.classList.add('disabled'); whatsBtn.href = '#';
-      if(stickyBar){ stickyBar.classList.add('hidden'); }
       if(stickyWhats){ stickyWhats.classList.add('disabled'); stickyWhats.href = '#'; }
       if(stickySubtotal){ stickySubtotal.textContent = 'R0.00'; }
       return;
@@ -231,7 +230,6 @@
       stickySubtotal.textContent = 'R'+subtotalVal.toFixed(2);
     }
     whatsBtn.classList.remove('disabled');
-    if(stickyBar){ stickyBar.classList.remove('hidden'); }
 
     var lines = [];
     lines.push('*New Order — Archie & Son Bakery*');
@@ -293,7 +291,6 @@
       // Re-render table and totals; disable WhatsApp
       render();
       if (whatsBtn){ whatsBtn.classList.add('disabled'); whatsBtn.href = '#'; }
-      if (stickyBar){ stickyBar.classList.add('hidden'); }
       if (stickyWhats){ stickyWhats.classList.add('disabled'); stickyWhats.href = '#'; }
     };
   }
